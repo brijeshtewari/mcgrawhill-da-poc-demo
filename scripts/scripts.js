@@ -74,28 +74,35 @@ function buildWidgetAutoBlocks(main) {
 }
 
 /**
+ * Loads `/fragments/...` references into the page.
+ * Deferred to the lazy phase since fragments are rarely part of the LCP section
+ * and fetching them eagerly competes with LCP-critical requests.
+ * @param {Element} main The container element
+ */
+function buildFragmentAutoBlocks(main) {
+  const fragments = [...main.querySelectorAll('a[href*="/fragments/"]')].filter((f) => !f.closest('.fragment'));
+  if (fragments.length === 0) return;
+  // eslint-disable-next-line import/no-cycle
+  import('../blocks/fragment/fragment.js').then(({ loadFragment }) => {
+    fragments.forEach(async (fragment) => {
+      try {
+        const { pathname } = new URL(fragment.href);
+        const frag = await loadFragment(pathname);
+        fragment.parentElement.replaceWith(...frag.children);
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error('Fragment loading failed', error);
+      }
+    });
+  });
+}
+
+/**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
  */
 function buildAutoBlocks(main) {
   try {
-    // auto load `*/fragments/*` references
-    const fragments = [...main.querySelectorAll('a[href*="/fragments/"]')].filter((f) => !f.closest('.fragment'));
-    if (fragments.length > 0) {
-      // eslint-disable-next-line import/no-cycle
-      import('../blocks/fragment/fragment.js').then(({ loadFragment }) => {
-        fragments.forEach(async (fragment) => {
-          try {
-            const { pathname } = new URL(fragment.href);
-            const frag = await loadFragment(pathname);
-            fragment.parentElement.replaceWith(...frag.children);
-          } catch (error) {
-            // eslint-disable-next-line no-console
-            console.error('Fragment loading failed', error);
-          }
-        });
-      });
-    }
     buildWidgetAutoBlocks(main);
   } catch (error) {
     // eslint-disable-next-line no-console
@@ -160,6 +167,9 @@ export function decorateMain(main) {
  * @param {Element} doc The container element
  */
 async function loadEager(doc) {
+  // read before any DOM mutations below to avoid forcing a synchronous reflow
+  const isWideViewport = window.innerWidth >= 900;
+
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
@@ -171,7 +181,7 @@ async function loadEager(doc) {
 
   try {
     /* if desktop (proxy for fast connection) or fonts already loaded, load fonts.css */
-    if (window.innerWidth >= 900 || sessionStorage.getItem('fonts-loaded')) {
+    if (isWideViewport || sessionStorage.getItem('fonts-loaded')) {
       loadFonts();
     }
   } catch (e) {
@@ -187,6 +197,7 @@ async function loadLazy(doc) {
   loadHeader(doc.querySelector('body > header'));
 
   const main = doc.querySelector('main');
+  buildFragmentAutoBlocks(main);
   await loadSections(main);
 
   const { hash } = window.location;
