@@ -14,5 +14,5 @@ indices:
         select: head > meta[name="description"]
         value: attribute(el, 'content')
       image:
-        select: head > meta[property="og:image"]
+        select: head > meta[property="og:url"]
         value: match(attribute(el, 'content'), 'https:\/\/[^/]+(/.*)')

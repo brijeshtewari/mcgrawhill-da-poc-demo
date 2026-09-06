@@ -1,0 +1,37 @@
+.breadcrumb nav {
+  display: inline-block;
+  font-size: 14px;
+}
+
+.breadcrumb ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.breadcrumb li {
+  display: inline-block;
+  padding: 10px 5px;
+  text-transform: uppercase;
+}
+
+.breadcrumb li a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.breadcrumb li:first-child {
+  padding-left: 0;
+}
+
+.breadcrumb li::before {
+  padding-right: 5px;
+  content: "▶";
+  color: var(--dark-color);
+  font-size: 14px;
+}
+
+.breadcrumb li:first-child::before {
+  content: none;
+}
