@@ -1,0 +1,11 @@
+{
+  "type": "da",
+  "sites": {
+    "mcgrawhill-da-poc-demo": {
+      "previewOrg": "brijeshtewari",
+      "previewSite": "mcgrawhill-da-poc-demo",
+      "contentHostUrl": "https://content.da.live/brijeshtewari/mcgrawhill-da-poc-demo/",
+      "libraryUrl": "https://develop--mcgrawhill-da-poc-demo--brijeshtewari.aem.live/tools/sidekick/library.json"
+    }
+  }
+}

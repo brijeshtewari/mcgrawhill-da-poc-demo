@@ -150,6 +150,41 @@ function decorateButtons(main) {
 }
 
 /**
+ * Applies `section-metadata` blocks to their parent section.
+ * Reads each key/value row; the `style` key adds space-separated classes to the
+ * section, other keys are stored as data attributes. The block is then removed.
+ * (The stripped `aem.js` decorateSections in this project does not do this.)
+ * @param {Element} main The main container element
+ */
+function decorateSectionMetadata(main) {
+  main.querySelectorAll('div.section-metadata').forEach((sectionMeta) => {
+    const section = sectionMeta.closest('.section');
+    if (!section) return;
+    const meta = {};
+    sectionMeta.querySelectorAll(':scope > div').forEach((row) => {
+      const cells = row.querySelectorAll(':scope > div');
+      if (cells.length >= 2) {
+        const key = cells[0].textContent.trim().toLowerCase();
+        const value = cells[1].textContent.trim();
+        if (key) meta[key] = value;
+      }
+    });
+    Object.entries(meta).forEach(([key, value]) => {
+      if (key === 'style') {
+        value.split(',').forEach((s) => {
+          const cls = s.trim().replace(/\s+/g, '-').toLowerCase();
+          if (cls) section.classList.add(cls);
+        });
+      } else {
+        section.dataset[key.replace(/-([a-z])/g, (m, c) => c.toUpperCase())] = value;
+      }
+    });
+    sectionMeta.closest('.section-metadata-wrapper, div')?.remove();
+    sectionMeta.remove();
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -158,6 +193,7 @@ export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
+  decorateSectionMetadata(main);
   decorateBlocks(main);
   decorateButtons(main);
 }

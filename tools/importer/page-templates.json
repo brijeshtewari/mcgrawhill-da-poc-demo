@@ -1,0 +1,102 @@
+{
+  "metadata": {
+    "projectType": "da"
+  },
+  "templates": [
+    {
+      "name": "home",
+      "urls": [
+        "https://wknd.site/us/en.html"
+      ],
+      "representativeUrl": "https://wknd.site/us/en.html",
+      "description": "WKND homepage: hero carousel, featured article teaser, recent articles cards grid, next adventures teaser, and adventure cards grid.",
+      "urlPattern": "/us/*",
+      "blocks": [
+        {
+          "name": "carousel",
+          "instances": [
+            ".carousel.cmp-carousel--hero",
+            ".cmp-carousel--hero"
+          ]
+        },
+        {
+          "name": "teaser",
+          "instances": [
+            ".teaser.cmp-teaser--featured",
+            ".teaser.cmp-teaser--hero"
+          ]
+        },
+        {
+          "name": "cards",
+          "instances": [
+            ".image-list.list"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "logical-1",
+          "name": "Hero Carousel",
+          "selector": [
+            ".carousel.cmp-carousel--hero"
+          ],
+          "style": null,
+          "blocks": [
+            "carousel"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "logical-2",
+          "name": "Featured Article",
+          "selector": [
+            ".teaser.cmp-teaser--featured"
+          ],
+          "style": "grey",
+          "blocks": [
+            "teaser"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "logical-3",
+          "name": "Recent Articles",
+          "selector": [
+            ".title.cmp-title--underline:nth-of-type(2)"
+          ],
+          "style": null,
+          "blocks": [
+            "cards"
+          ],
+          "defaultContent": [
+            ".title.cmp-title--underline:nth-of-type(2)"
+          ]
+        },
+        {
+          "id": "logical-4",
+          "name": "Next Adventures",
+          "selector": [
+            ".teaser.cmp-teaser--hero"
+          ],
+          "style": null,
+          "blocks": [
+            "teaser"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "logical-5",
+          "name": "Where do you want to go?",
+          "selector": [
+            ".title:nth-of-type(6)"
+          ],
+          "style": null,
+          "blocks": [
+            "cards"
+          ],
+          "defaultContent": []
+        }
+      ]
+    }
+  ]
+}
