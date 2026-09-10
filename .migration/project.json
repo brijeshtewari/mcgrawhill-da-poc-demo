@@ -1,0 +1,9 @@
+{
+  "sites": {
+    "mcgrawhill-da-poc-demo": {
+      "previewOrg": "brijeshtewari",
+      "previewSite": "mcgrawhill-da-poc-demo",
+      "contentHostUrl": "https://content.da.live/brijeshtewari/mcgrawhill-da-poc-demo/"
+    }
+  }
+}
