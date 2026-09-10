@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://wknd.site/ca/en/adventures/whistler-mountain-biking.html",
+  "path": "ca/en/adventures/whistler-mountain-biking",
+  "timestamp": "2026-09-10T17:50:50.868Z",
+  "title": "Whistler Mountain Biking",
+  "template": "adventure-detail",
+  "blocks": [
+    "breadcrumbs",
+    "breadcrumbs",
+    "carousel",
+    "carousel",
+    "tabs",
+    "tabs"
+  ]
+}

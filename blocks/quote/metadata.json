@@ -1,0 +1,34 @@
+{
+  "variantName": "quote",
+  "baseBlock": "quote",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "minimal",
+    "hasBackgroundImage": false,
+    "hasGrid": false,
+    "imagePattern": "noimg",
+    "structure": "blockquote + attribution"
+  },
+  "contentPattern": "A pull quote: a quotation followed by an optional attribution/citation, rendered as a <blockquote>.",
+  "options": [
+    {
+      "class": "minimal-dark-withimg-1",
+      "label": "Minimal Dark Withimg 1"
+    }
+  ],
+  "memberVariantIds": [
+    "quote-minimal-dark-withimg",
+    "quote-minimal-dark-withimg-1"
+  ],
+  "usage": {
+    "reuseCount": 2,
+    "pagesUsing": [
+      {
+        "url": "https://wknd.site/ca/en/magazine/arctic-surfing.html",
+        "documentPath": "/ca/en/magazine/arctic-surfing"
+      }
+    ],
+    "lastUsed": "2026-09-10T19:08:00.830662+00:00"
+  }
+}

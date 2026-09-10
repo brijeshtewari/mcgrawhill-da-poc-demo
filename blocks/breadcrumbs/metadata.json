@@ -1,0 +1,29 @@
+{
+  "variantName": "breadcrumbs",
+  "baseBlock": "breadcrumbs",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "minimal",
+    "hasBackgroundImage": false,
+    "hasGrid": false,
+    "imagePattern": "noimg",
+    "structure": "horizontal navigation trail"
+  },
+  "contentPattern": "A single horizontal breadcrumb trail derived from the page URL path; each segment is a link except the current page.",
+  "options": [],
+  "memberVariantIds": [
+    "breadcrumbs-minimal-dark"
+  ],
+  "usage": {
+    "reuseCount": 33,
+    "pagesUsing": [
+      "/ca/en/adventures/bali-surf-camp",
+      {
+        "url": "https://wknd.site/ca/en/magazine/arctic-surfing.html",
+        "documentPath": "/ca/en/magazine/arctic-surfing"
+      }
+    ],
+    "lastUsed": "2026-09-10T19:08:00.830662+00:00"
+  }
+}

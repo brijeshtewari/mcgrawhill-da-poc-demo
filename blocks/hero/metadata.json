@@ -12,9 +12,18 @@
   },
   "contentPattern": "A single large image with heading/text content layered over it as a full-bleed banner.",
   "options": [
-    { "class": "minimal-dark-withimg", "label": "Minimal Dark Withimg" },
-    { "class": "minimal-dark-withimg-1", "label": "Minimal Dark Withimg 1" },
-    { "class": "minimal-dark-withimg-3", "label": "Minimal Dark Withimg 3" }
+    {
+      "class": "minimal-dark-withimg",
+      "label": "Minimal Dark Withimg"
+    },
+    {
+      "class": "minimal-dark-withimg-1",
+      "label": "Minimal Dark Withimg 1"
+    },
+    {
+      "class": "minimal-dark-withimg-3",
+      "label": "Minimal Dark Withimg 3"
+    }
   ],
   "memberVariantIds": [
     "hero-minimal-dark-withimg-2",
@@ -23,10 +32,20 @@
     "hero-minimal-dark-withimg"
   ],
   "usage": {
-    "reuseCount": 15,
+    "reuseCount": 17,
     "pagesUsing": [
-      { "url": "https://wknd.site/ca/en/faqs.html" }
+      {
+        "url": "https://wknd.site/ca/en/faqs.html"
+      },
+      {
+        "url": "https://wknd.site/ca/en/adventures.html",
+        "documentPath": "/ca/en/adventures"
+      },
+      {
+        "url": "https://wknd.site/ca/en/magazine/arctic-surfing.html",
+        "documentPath": "/ca/en/magazine/arctic-surfing"
+      }
     ],
-    "lastUsed": "2026-09-10T16:11:42.634Z"
+    "lastUsed": "2026-09-10T19:08:00.830662+00:00"
   }
 }

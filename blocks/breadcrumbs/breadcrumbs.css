@@ -1,0 +1,41 @@
+.breadcrumbs nav {
+  display: inline-block;
+  font-family: var(--body-font-family);
+}
+
+.breadcrumbs ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.breadcrumbs li {
+  display: inline-block;
+  margin: 0;
+  padding: 10px 5px 10px 0;
+  color: var(--text-color);
+  font-size: 14px;
+  line-height: 21px;
+  text-transform: uppercase;
+}
+
+.breadcrumbs li a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.breadcrumbs li[aria-current="page"] {
+  font-weight: 400;
+}
+
+.breadcrumbs li::before {
+  padding-right: 5px;
+  content: "\25B6";
+  color: #ffea00;
+  font-size: 14px;
+}
+
+.breadcrumbs li:first-child::before {
+  content: none;
+}

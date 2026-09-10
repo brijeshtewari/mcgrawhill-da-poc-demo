@@ -1,0 +1,51 @@
+{
+  "variantName": "tabs",
+  "baseBlock": "tabs",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "minimal",
+    "hasBackgroundImage": false,
+    "hasGrid": false,
+    "imagePattern": "large",
+    "structure": "tablist + panels"
+  },
+  "contentPattern": "A tabbed information panel: a row of tab labels (e.g. Overview, Itinerary, What to Bring) switching between content panels that hold rich text and images.",
+  "options": [
+    {
+      "class": "minimal-dark-withimg-1",
+      "label": "Minimal Dark Withimg 1"
+    },
+    {
+      "class": "minimal-dark-withimg-2",
+      "label": "Minimal Dark Withimg 2"
+    },
+    {
+      "class": "minimal-dark-withimg-3",
+      "label": "Minimal Dark Withimg 3"
+    },
+    {
+      "class": "minimal-dark-withimg-5",
+      "label": "Minimal Dark Withimg 5"
+    },
+    {
+      "class": "minimal-dark-withimg-6",
+      "label": "Minimal Dark Withimg 6"
+    }
+  ],
+  "memberVariantIds": [
+    "tabs-minimal-dark-withimg",
+    "tabs-minimal-dark-withimg-1",
+    "tabs-minimal-dark-withimg-2",
+    "tabs-minimal-dark-withimg-3",
+    "tabs-minimal-dark-withimg-5",
+    "tabs-minimal-dark-withimg-6"
+  ],
+  "usage": {
+    "reuseCount": 32,
+    "pagesUsing": [
+      "/ca/en/adventures/bali-surf-camp"
+    ],
+    "lastUsed": "2026-09-10T17:39:23.971983+00:00"
+  }
+}

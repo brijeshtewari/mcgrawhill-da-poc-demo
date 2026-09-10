@@ -29,7 +29,7 @@
   justify-content: center;
   position: relative;
   width: 100%;
-  min-height: min(50vw, calc(100dvh - var(--header-height)));
+  min-height: min(56vw, calc(100dvh - var(--header-height, 88px)));
 }
 
 .carousel .carousel-slide:has(.carousel-slide-content[data-align='center']) {
@@ -61,30 +61,36 @@
   width: var(--slide-content-width, auto);
 }
 
+/* Single-slide (e.g. adventure detail) uses an empty content cell — hide the
+   overlay box so the image reads cleanly, matching the source gallery image. */
+.carousel .carousel-slide .carousel-slide-content:empty {
+  display: none;
+}
+
 .carousel .carousel-slide-indicators {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 6px 12px;
-  padding: 12px;
-  background-color: var(--light-color);
+  gap: 0 14px;
+  margin: 8px 0 0;
+  padding: 8px 0;
   line-height: 0;
 }
 
 .carousel .carousel-slide-indicator button {
-  width: 24px;
-  height: 24px;
+  width: 10px;
+  height: 10px;
   margin: 0;
   padding: 0;
   border-radius: 50%;
-  background-color: #8F8F8F;
+  background-color: rgb(175 175 175);
   transition: background-color 0.2s;
 }
 
 .carousel .carousel-slide-indicator button:disabled,
 .carousel .carousel-slide-indicator button:hover,
 .carousel .carousel-slide-indicator button:focus-visible {
-  background-color: var(--text-color);
+  background-color: rgb(0 0 0 / 80%);
 }
 
 .carousel .carousel-navigation-buttons {
@@ -150,4 +156,14 @@
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
   }
+}
+
+/* Folded variant option hooks — structural placeholders for the design pass.
+   These catalog variants share the carousel structure; visual differences
+   (imagery/color treatment) are applied later by the design flow. */
+.carousel.minimal-dark-withimg-1,
+.carousel.minimal-dark-withimg-2,
+.carousel.minimal-dark-withimg-3 {
+  /* brand styling applied in design pass */
+  --carousel-variant: 1;
 }

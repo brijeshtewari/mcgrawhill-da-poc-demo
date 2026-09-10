@@ -1,11 +1,18 @@
+/*
+ * Teaser block -- banner-style teaser matching WKND hero/featured teasers.
+ * A full-width image with an overlaid white content box on desktop,
+ * stacked layout on mobile. Values extracted from source computed styles.
+ */
+
 .teaser {
-  display: flex;
-  flex-direction: column;
+  position: relative;
   overflow: hidden;
-  border: 1px solid var(--light-color);
-  border-radius: 8px;
-  background-color: var(--background-color);
-  box-shadow: 0 1px 4px rgb(0 0 0 / 10%);
+}
+
+/* Image band */
+.teaser .teaser-image,
+.teaser .teaser-image > div {
+  margin: 0;
 }
 
 .teaser .teaser-image picture,
@@ -13,10 +20,15 @@
   display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  object-position: 50% 50%;
 }
 
+/* Content -- stacked below the image on mobile */
 .teaser .teaser-content {
-  padding: 24px;
+  padding: 18px 14px 24px;
+  background-color: var(--background-color);
 }
 
 .teaser .teaser-content h1,
@@ -25,19 +37,35 @@
 .teaser .teaser-content h4,
 .teaser .teaser-content h5,
 .teaser .teaser-content h6 {
-  margin-top: 0;
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-weight: 400;
+  color: var(--text-color);
+}
+
+.teaser .teaser-content h2 {
+  font-size: 36px;
+  line-height: 1.5;
 }
 
 .teaser .teaser-content p {
-  margin: 0.5em 0;
+  margin: 0.5em 0 0;
+  font-size: var(--body-font-size-m);
+  line-height: 1.75;
+  color: var(--text-color);
 }
 
 .teaser .teaser-content .button-wrapper {
   margin: 16px 0 0;
 }
 
-@media (width >= 600px) {
-  .teaser {
-    max-width: 360px;
+/* Desktop -- white content box overlaps the lower-left of the image */
+@media (width >= 900px) {
+  .teaser .teaser-content {
+    position: absolute;
+    left: 24px;
+    right: 12%;
+    bottom: 0;
+    padding: 28px 32px 36px;
   }
 }

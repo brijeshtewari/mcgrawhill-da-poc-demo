@@ -39,3 +39,9 @@
   content: "—";
   padding-right: 0.5ch;
 }
+
+/* Folded variant option hook — structural placeholder for the design pass. */
+.quote.minimal-dark-withimg-1 {
+  /* brand styling applied in design pass */
+  --quote-variant: 1;
+}

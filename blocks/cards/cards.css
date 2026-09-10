@@ -1,19 +1,17 @@
+/* Block: cards — WKND adventure/article card grid */
+
 .cards > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  gap: 24px;
+  grid-template-columns: 1fr;
+  gap: 32px 14px;
 }
 
 .cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
-}
-
-.cards .cards-card-body {
-  margin: 16px;
+  background-color: transparent;
+  border: none;
 }
 
 .cards .cards-card-image {
@@ -22,6 +20,53 @@
 
 .cards > ul > li img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 13 / 10;
   object-fit: cover;
+}
+
+.cards .cards-card-body {
+  margin: 0;
+}
+
+/* title: uppercase, bold, dark — body font (not heading font) */
+.cards .cards-card-body h3 {
+  margin: 12px 0 0;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+.cards .cards-card-body h3 a:any-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cards .cards-card-body h3 a:hover {
+  text-decoration: underline;
+}
+
+/* description: small, uppercase, grey */
+.cards .cards-card-body p {
+  margin: 16px 0 0;
+  font-size: 14px;
+  line-height: 21px;
+  text-transform: uppercase;
+  color: rgb(105 105 105);
+}
+
+/* tablet: 2 columns */
+@media (width >= 600px) {
+  .cards > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* desktop: 4 columns */
+@media (width >= 900px) {
+  .cards > ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }

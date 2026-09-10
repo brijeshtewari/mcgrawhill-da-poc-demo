@@ -14,7 +14,42 @@
       ],
       "coverageGaps": [],
       "description": "Section landing page combining a hero banner with card grids and rich-text content blocks",
-      "blocks": []
+      "blocks": [
+        {
+          "name": "teaser",
+          "instances": [".teaser.cmp-teaser--featured", ".teaser.cmp-teaser--secure", ".teaser.cmp-teaser--list", ".teaser.cmp-teaser--hero"]
+        },
+        {
+          "name": "cards",
+          "instances": [".image-list.list"]
+        }
+      ],
+      "sections": [
+        {
+          "id": "logical-1",
+          "name": "page-intro-and-featured",
+          "selector": [".teaser.cmp-teaser--featured", ".title.cmp-title--underline"],
+          "style": null,
+          "blocks": ["teaser"],
+          "defaultContent": [".title.cmp-title--underline"]
+        },
+        {
+          "id": "logical-2",
+          "name": "all-articles",
+          "selector": [".image-list.list"],
+          "style": null,
+          "blocks": ["cards"],
+          "defaultContent": [".title.cmp-title--underline"]
+        },
+        {
+          "id": "logical-3",
+          "name": "members-only",
+          "selector": [".teaser.cmp-teaser--secure", ".teaser.cmp-teaser--list"],
+          "style": null,
+          "blocks": ["teaser"],
+          "defaultContent": [".title.cmp-title--underline", ".text"]
+        }
+      ]
     },
     {
       "name": "adventure-detail",
@@ -54,7 +89,46 @@
       ],
       "coverageGaps": [],
       "description": "Detail page with breadcrumbs, an image carousel, and a tabbed information panel",
-      "blocks": []
+      "blocks": [
+        {
+          "name": "breadcrumbs",
+          "instances": [".breadcrumb.cmp-breadcrumb--fixed", ".cmp-breadcrumb"]
+        },
+        {
+          "name": "carousel",
+          "instances": [".carousel.panelcontainer.cmp-carousel--mini", ".carousel.panelcontainer", ".cmp-carousel"]
+        },
+        {
+          "name": "tabs",
+          "instances": [".tabs.panelcontainer", ".cmp-tabs"]
+        }
+      ],
+      "sections": [
+        {
+          "id": "logical-1",
+          "name": "breadcrumbs",
+          "selector": [".breadcrumb.cmp-breadcrumb--fixed", ".cmp-breadcrumb"],
+          "style": null,
+          "blocks": ["breadcrumbs"],
+          "defaultContent": []
+        },
+        {
+          "id": "logical-2",
+          "name": "carousel",
+          "selector": [".carousel.panelcontainer.cmp-carousel--mini", ".carousel.panelcontainer"],
+          "style": null,
+          "blocks": ["carousel"],
+          "defaultContent": []
+        },
+        {
+          "id": "logical-3",
+          "name": "adventure-detail-body",
+          "selector": [".cmp-layout-container--fixed", "main.container.responsivegrid.cmp-layout-container--fixed"],
+          "style": null,
+          "blocks": ["tabs"],
+          "defaultContent": [".title.cmp-title--underline", ".contentfragment.cmp-contentfragment--elements"]
+        }
+      ]
     },
     {
       "name": "adventure-listing",
@@ -64,7 +138,34 @@
       ],
       "coverageGaps": [],
       "description": "Listing page with a hero banner and a tabbed grid of linked items",
-      "blocks": []
+      "blocks": [
+        {
+          "name": "teaser",
+          "instances": [".teaser.cmp-teaser--hero", ".teaser.cmp-teaser--featured"]
+        },
+        {
+          "name": "cards",
+          "instances": [".cmp-tabs__tabpanel--active .image-list.list"]
+        }
+      ],
+      "sections": [
+        {
+          "id": "logical-1",
+          "name": "Hero",
+          "selector": [".teaser.cmp-teaser--hero"],
+          "style": null,
+          "blocks": ["teaser"],
+          "defaultContent": []
+        },
+        {
+          "id": "logical-2",
+          "name": "Current Adventures",
+          "selector": [".cmp-layout-container--fixed", "main.container.responsivegrid.cmp-layout-container--fixed"],
+          "style": null,
+          "blocks": ["cards"],
+          "defaultContent": [".title.cmp-title--underline"]
+        }
+      ]
     },
     {
       "name": "faq",
@@ -231,7 +332,38 @@
       ],
       "coverageGaps": [],
       "description": "Editorial article with hero header, breadcrumbs, pull quote, and stacked rich-text body sections",
-      "blocks": []
+      "blocks": [
+        {
+          "name": "breadcrumbs",
+          "instances": [".breadcrumb", ".cmp-breadcrumb"]
+        }
+      ],
+      "sections": [
+        {
+          "id": "logical-1",
+          "name": "hero-header",
+          "selector": [".cmp-layout-container--fixed .image:not(.cmp-image--logo)", ".cmp-layout-container--fixed"],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [".image"]
+        },
+        {
+          "id": "logical-2",
+          "name": "breadcrumbs",
+          "selector": [".breadcrumb", ".cmp-breadcrumb"],
+          "style": null,
+          "blocks": ["breadcrumbs"],
+          "defaultContent": []
+        },
+        {
+          "id": "logical-3",
+          "name": "article-body",
+          "selector": ["main.container.responsivegrid.cmp-layout-container--fixed", ".cmp-layout-container--fixed"],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [".title", ".text", ".image"]
+        }
+      ]
     }
   ]
 }

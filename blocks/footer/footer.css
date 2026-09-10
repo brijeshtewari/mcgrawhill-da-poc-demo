@@ -1,20 +1,154 @@
+/*
+ * Footer — WKND
+ * Mobile-first. Dark footer with light text, logo + nav, Follow Us + social,
+ * separator, and legal block.
+ */
+
+/* stylelint-disable no-descending-specificity */
+
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+  background-color: var(--dark-color);
+  color: #ebebeb;
+  font-family: var(--body-font-family);
 }
 
-footer .footer > div {
-  margin: auto;
+footer .footer-inner {
   max-width: 1200px;
-  padding: 40px 24px 24px;
+  margin: 0 auto;
+  padding: 40px 24px;
 }
 
-footer .footer p {
+/* Top row */
+footer .footer-top {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+footer .footer-brand img {
+  display: block;
+  height: 56px;
+  width: auto;
+  margin-bottom: 20px;
+}
+
+footer .footer-nav ul,
+footer .footer-social-list {
+  list-style: none;
   margin: 0;
+  padding: 0;
 }
 
+footer .footer-nav li {
+  margin: 0 0 8px;
+}
+
+footer .footer-nav a {
+  color: #ebebeb;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+footer .footer-nav a:hover {
+  color: var(--accent-color);
+}
+
+/* Follow Us + social */
+footer .footer-social h4 {
+  margin: 0 0 12px;
+  color: #fff;
+  font-family: var(--heading-font-family);
+  font-weight: 400;
+}
+
+footer .footer-social-list {
+  display: flex;
+  gap: 12px;
+}
+
+footer .footer-social-list a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(255 255 255 / 10%);
+  color: #fff;
+  font-size: 0;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  position: relative;
+}
+
+footer .footer-social-list a::before {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+footer .footer-social-list li:nth-child(1) a::before {
+  content: "f";
+  font-size: 18px;
+}
+
+footer .footer-social-list li:nth-child(2) a::before {
+  content: "t";
+  font-size: 18px;
+}
+
+footer .footer-social-list li:nth-child(3) a::before {
+  content: "in";
+  font-size: 12px;
+}
+
+footer .footer-social-list a:hover {
+  background-color: var(--accent-color);
+  color: var(--dark-color);
+}
+
+/* Separator */
+footer .footer-separator {
+  margin: 32px 0;
+  border: 0;
+  border-top: 1px solid rgb(255 255 255 / 20%);
+}
+
+/* Legal */
+footer .footer-legal {
+  font-size: var(--body-font-size-xs);
+  line-height: 1.6;
+  color: #b0b0b0;
+}
+
+footer .footer-legal p {
+  margin: 0 0 12px;
+}
+
+footer .footer-legal a {
+  color: #ebebeb;
+  text-decoration: underline;
+}
+
+footer .footer-legal a:hover {
+  color: var(--accent-color);
+}
+
+/* ---- Desktop (>= 900px) ---- */
 @media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+  footer .footer-top {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  footer .footer-nav ul {
+    display: flex;
+    gap: 24px;
+  }
+
+  footer .footer-nav li {
+    margin: 0;
   }
 }

@@ -1,0 +1,41 @@
+{
+  "variantName": "carousel",
+  "baseBlock": "carousel",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "minimal",
+    "hasBackgroundImage": false,
+    "hasGrid": false,
+    "imagePattern": "large",
+    "structure": "slides"
+  },
+  "contentPattern": "A rotating set of slides, each with a large image and optional content, navigated by indicators and prev/next controls.",
+  "options": [
+    {
+      "class": "minimal-dark-withimg-1",
+      "label": "Minimal Dark Withimg 1"
+    },
+    {
+      "class": "minimal-dark-withimg-2",
+      "label": "Minimal Dark Withimg 2"
+    },
+    {
+      "class": "minimal-dark-withimg-3",
+      "label": "Minimal Dark Withimg 3"
+    }
+  ],
+  "memberVariantIds": [
+    "carousel-minimal-dark-withimg",
+    "carousel-minimal-dark-withimg-1",
+    "carousel-minimal-dark-withimg-2",
+    "carousel-minimal-dark-withimg-3"
+  ],
+  "usage": {
+    "reuseCount": 34,
+    "pagesUsing": [
+      "/ca/en/adventures/bali-surf-camp"
+    ],
+    "lastUsed": "2026-09-10T17:39:23.971983+00:00"
+  }
+}

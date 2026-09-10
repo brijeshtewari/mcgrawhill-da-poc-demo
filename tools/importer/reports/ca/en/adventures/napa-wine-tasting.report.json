@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://wknd.site/ca/en/adventures/napa-wine-tasting.html",
+  "path": "ca/en/adventures/napa-wine-tasting",
+  "timestamp": "2026-09-10T17:50:14.869Z",
+  "title": "Napa Wine Tasting",
+  "template": "adventure-detail",
+  "blocks": [
+    "breadcrumbs",
+    "breadcrumbs",
+    "carousel",
+    "carousel",
+    "tabs",
+    "tabs"
+  ]
+}
