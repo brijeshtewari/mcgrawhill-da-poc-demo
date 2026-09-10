@@ -1,0 +1,25 @@
+{
+  "variantName": "accordion",
+  "baseBlock": "accordion",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "minimal",
+    "hasBackgroundImage": false,
+    "hasGrid": false,
+    "imagePattern": "noimg",
+    "structure": "heading + text + 7 CTAs"
+  },
+  "contentPattern": "Repeating rows of a question label and an expandable answer body; each row becomes a <details>/<summary> disclosure item.",
+  "options": [],
+  "memberVariantIds": [
+    "accordion-minimal-dark"
+  ],
+  "usage": {
+    "pagesUsing": [
+      { "url": "https://wknd.site/ca/en/faqs.html" },
+      { "url": "https://wknd.site/us/en/faqs.html" }
+    ],
+    "reuseCount": 2
+  }
+}

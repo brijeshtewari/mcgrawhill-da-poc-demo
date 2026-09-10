@@ -1,61 +1,96 @@
-.accordion details {
-  border: 1px solid #dadada;
+/*
+ * Accordion Block
+ * Visual design migrated from wknd.site FAQ accordion.
+ * Source values (getComputedStyle):
+ *   question row: text-align left, padding 13.33px, border-bottom 2px solid rgb(235,235,235)
+ *   question text: "Source Sans Pro" 16px/600, uppercase, rgb(0,0,0), padding-left 8px
+ *   +/- toggle: black, ~20px, ~13.3px from right edge (source uses an icon font; recreated in CSS)
+ *   answer body: "Source Sans Pro" 14px/21px, rgb(32,32,32), padding 7px 0 0 7px
+ *   item gap: 13.5px; no background change on hover/open
+ */
+
+.accordion .accordion-item {
+  border: 0;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
-.accordion details + details {
-  margin-top: 24px;
+.accordion .accordion-item + .accordion-item {
+  margin-top: 13.5px;
 }
 
-.accordion details p {
-  margin-bottom: 0.8em;
-}
-
-.accordion details summary {
+/* question row */
+.accordion .accordion-item-label {
   position: relative;
-  padding: 0 16px;
-  padding-right: 46px;
+  padding: 13.33px 46px 13.33px 13.33px;
+  border-bottom: 2px solid rgb(235 235 235);
   cursor: pointer;
   list-style: none;
-  overflow: auto;
   transition: background-color 0.2s;
 }
 
-.accordion details[open] summary {
-  background-color: var(--light-color);
-}
-
-.accordion details summary:focus,
-.accordion details summary:hover {
-  background-color: var(--light-color);
-}
-
-.accordion details summary::-webkit-details-marker {
+.accordion .accordion-item-label::-webkit-details-marker {
   display: none;
 }
 
-.accordion details summary::after {
+/* question text */
+.accordion .accordion-item-label p {
+  margin: 0;
+  padding-left: 8px;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+  color: rgb(0 0 0);
+}
+
+/* +/- toggle icon on the right (source uses wknd-icon-font glyph, recreated with CSS bars) */
+.accordion .accordion-item-label::before,
+.accordion .accordion-item-label::after {
   content: '';
   position: absolute;
+  right: 13.33px;
   top: 50%;
-  right: 18px;
-  transform: translateY(-50%) rotate(135deg);
-  width: 6px;
-  height: 6px;
-  border: 2px solid;
-  border-width: 2px 2px 0 0;
-  transition: transform 0.2s;
+  background-color: rgb(0 0 0);
+  transition: opacity 0.2s, transform 0.2s;
 }
 
-.accordion details[open] summary::after {
-  transform: translateY(-50%) rotate(-45deg);
+/* horizontal bar (always visible) */
+.accordion .accordion-item-label::after {
+  width: 18px;
+  height: 2px;
+  transform: translateY(-50%);
 }
 
-.accordion details .accordion-item-body {
-  padding: 0 16px;
+/* vertical bar (hidden when open -> minus) */
+.accordion .accordion-item-label::before {
+  width: 2px;
+  height: 18px;
+  right: 21.33px;
+  transform: translateY(-50%);
 }
 
-.accordion details[open] .accordion-item-body {
-  border-top: 1px solid #dadada;
-  background-color: var(--background-color);
+.accordion .accordion-item[open] .accordion-item-label::before {
+  opacity: 0;
+}
+
+/* answer body */
+.accordion .accordion-item-body {
+  padding: 7px 0 0 7px;
+}
+
+.accordion .accordion-item-body p {
+  margin: 0 0 13.5px;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--text-color);
+}
+
+.accordion .accordion-item-body p:last-child {
+  margin-bottom: 0;
+}
+
+.accordion .accordion-item-body h3 {
+  font-size: 14px;
+  line-height: 21px;
 }

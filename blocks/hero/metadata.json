@@ -1,0 +1,32 @@
+{
+  "variantName": "hero",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "minimal",
+    "hasBackgroundImage": false,
+    "hasGrid": false,
+    "imagePattern": "large",
+    "structure": "image"
+  },
+  "contentPattern": "A single large image with heading/text content layered over it as a full-bleed banner.",
+  "options": [
+    { "class": "minimal-dark-withimg", "label": "Minimal Dark Withimg" },
+    { "class": "minimal-dark-withimg-1", "label": "Minimal Dark Withimg 1" },
+    { "class": "minimal-dark-withimg-3", "label": "Minimal Dark Withimg 3" }
+  ],
+  "memberVariantIds": [
+    "hero-minimal-dark-withimg-2",
+    "hero-minimal-dark-withimg-3",
+    "hero-minimal-dark-withimg-1",
+    "hero-minimal-dark-withimg"
+  ],
+  "usage": {
+    "reuseCount": 15,
+    "pagesUsing": [
+      { "url": "https://wknd.site/ca/en/faqs.html" }
+    ],
+    "lastUsed": "2026-09-10T16:11:42.634Z"
+  }
+}
