@@ -134,6 +134,20 @@ export default async function decorate(block) {
     const slide = createSlide(row, idx, carouselId);
     slidesWrapper.append(slide);
 
+    // Core Web Vitals: the first slide's image is the LCP candidate — load it
+    // eagerly at high priority; the other slides start off-screen, so
+    // deprioritize their images to avoid competing for bandwidth.
+    const slideImg = slide.querySelector('img');
+    if (slideImg) {
+      if (idx === 0) {
+        slideImg.setAttribute('loading', 'eager');
+        slideImg.setAttribute('fetchpriority', 'high');
+      } else {
+        slideImg.setAttribute('loading', 'lazy');
+        slideImg.setAttribute('fetchpriority', 'low');
+      }
+    }
+
     if (slideIndicators) {
       const indicator = document.createElement('li');
       indicator.classList.add('carousel-slide-indicator');
