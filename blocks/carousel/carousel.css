@@ -1,3 +1,12 @@
+/* Full-bleed: the hero carousel spans the full viewport width, breaking out of
+   the 1200px section container. Higher specificity than `main > .section > div`. */
+main > .section.carousel-container > .carousel-wrapper {
+  max-width: none;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 0;
+}
+
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -67,6 +76,28 @@
   display: none;
 }
 
+/* Slide CTA — yellow accent button (matches source "View Trips"). */
+.carousel .carousel-slide-content a {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 14px 35px;
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border-radius: 0;
+  transition: background-color 0.2s;
+}
+
+.carousel .carousel-slide-content a:hover,
+.carousel .carousel-slide-content a:focus-visible {
+  background-color: #d6c500;
+}
+
 .carousel .carousel-slide-indicators {
   display: flex;
   flex-wrap: wrap;
@@ -95,13 +126,11 @@
 
 .carousel .carousel-navigation-buttons {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 12px;
-  right: 12px;
+  bottom: 24px;
+  right: 24px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 12px;
   z-index: 1;
 }
 
@@ -143,8 +172,8 @@
 
 @media (width >= 600px) {
   .carousel .carousel-navigation-buttons {
-    left: 24px;
-    right: 24px;
+    bottom: 32px;
+    right: 32px;
   }
 
   .carousel .carousel-slide .carousel-slide-content {

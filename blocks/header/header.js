@@ -50,18 +50,30 @@ export default async function decorate(block) {
     const utilInner = document.createElement('div');
     utilInner.className = 'nav-utility-inner';
 
+    // Source order (left → right): Sign In, then the language selector.
+    if (signIn) {
+      const sign = signIn.cloneNode(true);
+      sign.className = 'nav-signin';
+      utilInner.append(sign);
+    }
+
     // Locale selector (click-to-toggle dropdown)
     if (localeList) {
       const locale = document.createElement('div');
       locale.className = 'nav-locale';
+      // Match the locale whose href appears in the current path (works for both
+      // production "/us/en" and local "/content/us/en"); fall back to the first.
+      const path = window.location.pathname;
       const current = [...localeList.querySelectorAll('a')]
-        .find((a) => a.getAttribute('href') === window.location.pathname
-          || a.textContent.trim() === 'en-CA') || localeList.querySelector('a');
+        .find((a) => {
+          const href = a.getAttribute('href');
+          return href && (path === href || path.endsWith(href) || path.includes(`${href}/`));
+        }) || localeList.querySelector('a');
       const toggle = document.createElement('button');
       toggle.type = 'button';
       toggle.className = 'nav-locale-toggle';
       toggle.setAttribute('aria-expanded', 'false');
-      toggle.textContent = current ? current.textContent.trim() : 'en-CA';
+      toggle.textContent = current ? current.textContent.trim() : '';
       const list = localeList.cloneNode(true);
       list.className = 'nav-locale-list';
       list.hidden = true;
@@ -74,11 +86,6 @@ export default async function decorate(block) {
       utilInner.append(locale);
     }
 
-    if (signIn) {
-      const sign = signIn.cloneNode(true);
-      sign.className = 'nav-signin';
-      utilInner.append(sign);
-    }
     utilBar.append(utilInner);
   }
 
