@@ -22,13 +22,22 @@ export default function decorate(block) {
     .filter(Boolean);
   const pageTitle = getMetadata('og:title') || document.title;
 
-  const crumbs = [{ text: 'Home', path: '/' }];
+  // The trail should start at the top-level section (e.g. "Adventures"),
+  // matching the source — so skip the local-preview "content" prefix and the
+  // two locale segments (country + language, e.g. /us/en). Links keep the full
+  // path so they resolve correctly in every environment.
+  let start = 0;
+  if (segments[start] === 'content') start += 1;
+  start += 2; // locale: country + language
+
+  const crumbs = [];
   let path = '';
-  segments.forEach((segment) => {
+  segments.forEach((segment, i) => {
     path += `/${segment}`;
-    crumbs.push({ text: humanize(segment), path });
+    if (i >= start) crumbs.push({ text: humanize(segment), path });
   });
-  if (crumbs.length > 1) crumbs[crumbs.length - 1].text = pageTitle;
+  if (crumbs.length) crumbs[crumbs.length - 1].text = pageTitle;
+  if (!crumbs.length) return;
 
   const nav = document.createElement('nav');
   nav.setAttribute('aria-label', 'Breadcrumb');

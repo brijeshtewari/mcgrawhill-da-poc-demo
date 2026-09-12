@@ -1,5 +1,45 @@
 /* Block: cards — WKND adventure/article card grid */
 
+/* ---- Adventure category filter tabs ---- */
+.cards.cards-adventures .cards-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin: 0 0 32px;
+  border-bottom: 1px solid var(--light-color);
+}
+
+.cards.cards-adventures .cards-tab {
+  margin: 0;
+  padding: 8px 16px;
+  border: 0;
+  background: none;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.cards.cards-adventures .cards-tab:hover {
+  color: var(--link-color);
+}
+
+.cards.cards-adventures .cards-tab-active {
+  background-color: var(--dark-color);
+  color: #fff;
+}
+
+.cards.cards-adventures .cards-tab-active:hover {
+  color: #fff;
+}
+
+.cards .cards-card-hidden {
+  display: none;
+}
+
 .cards > ul {
   list-style: none;
   margin: 0;

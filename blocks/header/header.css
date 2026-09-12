@@ -233,6 +233,12 @@ header nav.nav-open .nav-main-inner {
     display: none;
   }
 
+  /* Taller main bar — logo sits in a generous band, matching the source
+     header height (~194px total incl. the utility bar). */
+  header nav .nav-main-inner {
+    padding: 40px 32px;
+  }
+
   header nav .nav-sections,
   header nav .nav-search {
     display: block;
