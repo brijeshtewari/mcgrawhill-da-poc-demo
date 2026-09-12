@@ -35,7 +35,8 @@ export default function decorate(block) {
 
   const cta = content.querySelector('a');
   if (cta) {
-    cta.classList.add('button');
+    // Teaser CTAs are yellow primary buttons in the WKND source.
+    cta.classList.add('button', 'primary');
     cta.closest('p')?.classList.add('button-wrapper');
   }
 

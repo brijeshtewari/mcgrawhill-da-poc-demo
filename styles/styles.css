@@ -125,11 +125,12 @@ button.button {
   margin: 0;
   border: 2px solid transparent;
   border-radius: 0;
-  padding: 0.75em 1.5em;
-  font: inherit;
+  padding: 14px 35px;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs);
   font-weight: 600;
-  line-height: 1.25;
-  letter-spacing: 0.05em;
+  line-height: 1.5;
+  letter-spacing: normal;
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;

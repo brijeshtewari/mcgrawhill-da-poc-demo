@@ -128,23 +128,38 @@ function decorateButtons(main) {
       if (new URL(a.href).href === new URL(text, window.location).href) return;
     } catch { /* continue */ }
 
-    // require authored formatting for buttonization
     const strong = a.closest('strong');
     const em = a.closest('em');
-    if (!strong && !em) return;
 
-    p.className = 'button-wrapper';
-    a.className = 'button';
-    if (strong && em) { // high-impact call-to-action
-      a.classList.add('accent');
-      const outer = strong.contains(em) ? strong : em;
-      outer.replaceWith(a);
-    } else if (strong) {
-      a.classList.add('primary');
-      strong.replaceWith(a);
-    } else {
-      a.classList.add('secondary');
-      em.replaceWith(a);
+    if (strong || em) {
+      // authored formatting drives the button variant
+      p.className = 'button-wrapper';
+      a.className = 'button';
+      if (strong && em) { // high-impact call-to-action
+        a.classList.add('accent');
+        const outer = strong.contains(em) ? strong : em;
+        outer.replaceWith(a);
+      } else if (strong) {
+        a.classList.add('primary');
+        strong.replaceWith(a);
+      } else {
+        a.classList.add('secondary');
+        em.replaceWith(a);
+      }
+      return;
+    }
+
+    // WKND convention: a standalone link that is the sole content of its
+    // paragraph in a section's default content is a primary CTA (e.g. the
+    // yellow "All Articles" / "All Trips" buttons). Skip in-block links and
+    // placeholder anchors (# / site root) so social/nav links stay plain.
+    const isSoleContent = p.children.length === 1 && p.childNodes.length === 1;
+    const inDefaultContent = p.closest('.default-content-wrapper');
+    const href = a.getAttribute('href') || '';
+    const isPlaceholder = href === '' || href === '#' || href === '/' || href.startsWith('#');
+    if (isSoleContent && inDefaultContent && !isPlaceholder) {
+      p.className = 'button-wrapper';
+      a.className = 'button primary';
     }
   });
 }
