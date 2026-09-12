@@ -175,9 +175,10 @@ header nav .nav-sections a {
   display: block;
   padding: 12px 0;
   color: var(--text-color);
-  font-weight: 600;
+  font-size: var(--body-font-size-xs);
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: normal;
   text-decoration: none;
 }
 

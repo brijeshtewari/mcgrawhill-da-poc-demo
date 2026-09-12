@@ -45,9 +45,10 @@ footer .footer-nav li {
 
 footer .footer-nav a {
   color: #ebebeb;
-  font-weight: 600;
+  font-size: var(--body-font-size-xs);
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: normal;
   text-decoration: none;
 }
 
@@ -59,8 +60,10 @@ footer .footer-nav a:hover {
 footer .footer-social h4 {
   margin: 0 0 12px;
   color: #fff;
-  font-family: var(--heading-font-family);
-  font-weight: 400;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 footer .footer-social-list {
@@ -72,8 +75,8 @@ footer .footer-social-list a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   background-color: rgb(255 255 255 / 10%);
   color: #fff;
   font-size: 0;

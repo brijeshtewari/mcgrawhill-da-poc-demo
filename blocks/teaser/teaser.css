@@ -82,7 +82,7 @@
 
 /* ---- Featured variant: image on one side, grey content panel on the other ---- */
 .teaser.teaser-featured .teaser-content {
-  background-color: var(--light-color);
+  background-color: #ebebeb; /* matches WKND source featured panel */
 }
 
 @media (width >= 900px) {
